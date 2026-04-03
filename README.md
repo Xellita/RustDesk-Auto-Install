@@ -48,9 +48,6 @@ Automated script for installing and configuring RustDesk. Designed to quickly de
 - Runtime: PowerShell 5.1+.
 - Build Method: Executable built using PS2EXE.
 - Localization: Console interface automatically switches between RU/EN based on OS language.
-
-*This software is provided "AS IS" under the MIT License.*
-
 ---
 
 ## Русский
@@ -96,7 +93,4 @@ Automated script for installing and configuring RustDesk. Designed to quickly de
 - Среда исполнения: PowerShell 5.1+.
 - Метод сборки: Исполняемый файл собран с помощью PS2EXE.
 - Локализация: Интерфейс консоли автоматически переключается между русским и английским языками в зависимости от языка ОС.
-
-*Данное программное обеспечение предоставляется "как есть" (AS IS) под лицензией MIT.*
-
 ---
