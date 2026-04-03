@@ -44,8 +44,8 @@ Automated script for installing and configuring RustDesk. Designed to quickly de
 ```
 *Note: The GitToken parameter is optional and used to bypass GitHub API rate limits during mass installations under a single IP.*
 
-### Technical Details - Runtime:
-- Environment: PowerShell 5.1+.
+### Technical Details:
+- Runtime: PowerShell 5.1+.
 - Build Method: Executable built using PS2EXE.
 - Localization: Console interface automatically switches between RU/EN based on OS language.
 
