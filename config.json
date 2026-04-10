@@ -1,0 +1,9 @@
+{
+    "RelayServer": "YourServerIP",
+    "RendezvousPort": "21116",
+    "RelayPort": "21117",
+    "StaticPassword": "YourPassword",
+    "Key": "YourKey",
+    "GitToken": "",
+    "AssetDir": "Assets"
+}

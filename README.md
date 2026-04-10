@@ -15,9 +15,11 @@ Automated script for installing and configuring RustDesk. Designed to quickly de
    - Deletes old binary files from the installation directory.
    - Cleans up old configuration files and logs in AppData and LocalService.
    - **Note**: The "peers" folder (saved contacts) is preserved if it existed.
-2. **Automated Installation**:
+2. **Hybrid Installation Logic**:
    - Dynamic detection of system architecture (x64/x86).
-   - Uses GitHub API to find and download the latest stable release.
+   - **Offline Mode**: Ability to install the latest local version from the `Assets` folder (prioritizes the highest version number).
+   - **Online Mode**: Uses GitHub API to find and download the latest stable release (you can use your GitHub Token).
+   - **Caching**: Automatically saves downloaded versions to the local assets folder for future use.
    - Automatic background installation (Silent Install).
 3. **Configuration & Security**:
    - Generates `RustDesk2.toml` with your Relay server parameters.
@@ -39,10 +41,17 @@ Automated script for installing and configuring RustDesk. Designed to quickly de
     "RelayPort": "21117",
     "StaticPassword": "YourStrongPassword",
     "Key": "Key_From_Your_Server",
-    "GitToken": ""
+    "GitToken": "",
+    "AssetDir": "Assets"
 }
 ```
-*Note: The GitToken parameter is optional and used to bypass GitHub API rate limits during mass installations under a single IP.*
+* **GitToken**: Optional. Used to bypass GitHub API rate limits during mass installations.
+* **AssetDir**: Optional. Specifies the directory where local installers are stored/saved for offline deployment.
+
+### How to build
+```powershell
+ps2exe -inputFile ".\RustDesk Auto Install.ps1" -outputFile ".\RustDesk Auto Install.exe" -icon ".\icon.ico" -requireAdmin
+```
 
 ### Technical Details:
 - Runtime: PowerShell 5.1+.
@@ -61,9 +70,11 @@ Automated script for installing and configuring RustDesk. Designed to quickly de
    - Полное удаление старых файлов из директории установки.
    - Очистка от старых конфигурационных файлов и логов в AppData и LocalService.
    - **Важно**: папка "peers" (сохраненные контакты) сохраняется, если она существовала ранее.
-2. **Автоматизация процесса установки**:
+2. **Гибридная логика установки**:
    - Динамическое определение текущей архитектуры системы (x64/x86).
-   - Использование GitHub API для поиска и загрузки последней стабильной версии.
+   - **Оффлайн режим**: Возможность установки из локальной папки `Assets` (скрипт автоматически выбирает версию с большим номером).
+   - **Онлайн режим**: Использование GitHub API для поиска и загрузки последнего стабильного релиза (вы можете использовать GitHub Token).
+   - **Кеширование**: Автоматическое сохранение загруженных файлов в локальную папку для последующего использования.
    - Автоматическая фоновая установка (Silent Install).
 3. **Конфигурация и защита**:
    - Автоматическое формирование файла `RustDesk2.toml` с параметрами вашего Relay-сервера.
@@ -84,10 +95,17 @@ Automated script for installing and configuring RustDesk. Designed to quickly de
     "RelayPort": "21117",
     "StaticPassword": "YourStrongPassword",
     "Key": "Key_From_Your_Server",
-    "GitToken": ""
+    "GitToken": "",
+    "AssetDir": "Assets"
 }
 ```
-*Примечание: Параметр GitToken является опциональным и используется для обхода лимитов GitHub API при массовых одновременных установках под одним IP.*
+* GitToken: Опционально. Используется для обхода лимитов GitHub API при массовых установках.
+* AssetDir: Опционально. Указывает папку для хранения локальных установщиков (для оффлайн-развертывания).
+
+### Как собрать
+```powershell
+ps2exe -inputFile ".\RustDesk Auto Install.ps1" -outputFile ".\RustDesk Auto Install.exe" -icon ".\icon.ico" -requireAdmin
+```
 
 ### Технические сведения 
 - Среда исполнения: PowerShell 5.1+.
